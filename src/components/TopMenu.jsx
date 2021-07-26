@@ -180,7 +180,7 @@ const useStyles = makeStyles((theme) => ({
 	tab: {
 		...theme.typography.tab,
 		minWidth: 10,
-		marginLeft: '25px'
+		marginLeft: '25px',
 	},
 	button: {
 		...theme.typography,
@@ -200,7 +200,7 @@ const useStyles = makeStyles((theme) => ({
 		...theme.typography.tab,
 		opacity: 0.7,
 		'&:hover': {
-			color: theme.palette.primary,
+			color: theme.palette.secondary,
 			opacity: 1
 		}
 	},
