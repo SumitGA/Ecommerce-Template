@@ -14,8 +14,8 @@ Built with React JS and Bootstrap 5
 
 Several quick start options are available:
 
-- [Download the latest branch](https://github.com/bhaumikpatel/E-Commerce-Template)
-- Clone the repo: `git clone https://github.com/bhaumikpatel/E-Commerce-Template.git`
+- [Download the latest branch](https://github.com/SumitGA/ECommerce-Template)
+- Clone the repo: `git@github.com:SumitGA/Ecommerce-Template.git`
 - Install with [npm](https://www.npmjs.com/): `npm install`
 - Runs the app in the development mode `npm start`
 - Builds the app for production to the `build` folder `npm run build`

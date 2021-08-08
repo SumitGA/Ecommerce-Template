@@ -9,7 +9,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import theme from './theme';
 import './App.min.css';
-import { teal } from '@material-ui/core/colors';
 //const Header = lazy(() => import("./components/Header"));
 //const TopMenu = lazy(() => import("./components/TopMenu"));
 const HomeView = lazy(() => import('./views/Home'));
@@ -50,6 +49,7 @@ const App = () => {
 					<Suspense fallback={<div className="text-white text-center mt-3">Loading...</div>}>
 						<Switch>
 							<Route exact path="/" component={HomeView} />
+							{/* <Route exact path="/admin" component={AdminView} /> */}
 							<Route exact path="/account/signin" component={SignInView} />
 							<Route exact path="/account/signup" component={SignUpView} />
 							<Route exact path="/account/forgotpassword" component={ForgotPasswordView} />

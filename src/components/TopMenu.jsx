@@ -143,6 +143,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { grey } from '@material-ui/core/colors';
+import { Redirect } from 'react-router';
 
 // import logo from '../../assets/logo.svg';
 
@@ -180,7 +182,7 @@ const useStyles = makeStyles((theme) => ({
 	tab: {
 		...theme.typography.tab,
 		minWidth: 10,
-		marginLeft: '25px',
+		marginLeft: '25px'
 	},
 	button: {
 		...theme.typography,
@@ -193,15 +195,20 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	menu: {
-		backgroundColor: theme.palette.primary.light,
-		color: 'white'
+		color: 'grey',
+		marginTop: '2.5rem',
+		fontFamily: 'sans-serif',
+		'&:hover': {
+			color: grey
+		}
 	},
 	menuItem: {
 		...theme.typography.tab,
+		backgroundColor: theme.palette.primary,
 		opacity: 0.7,
 		'&:hover': {
-			color: theme.palette.secondary,
-			opacity: 1
+			opacity: 1,
+			color: theme.palette.smokeWhite
 		}
 	},
 	drawerIcon: {
@@ -264,11 +271,17 @@ const TopMenu = (props) => {
 		setOpenMenu(false);
 	};
 
+	const handleSignin = () => {
+    return (
+      <Redirect to="/account/signin" />
+    )
+	};
+
 	const menuOptions = [
-		{ name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0 },
-		{ name: 'Custom Software Development', link: '/customsoftware', activeIndex: 1, selectedIndex: 1 },
-		{ name: 'Mobile App Development', link: '/mobileapps', activeIndex: 1, selectedIndex: 2 },
-		{ name: 'Website Development', link: '/websites', activeIndex: 1, selectedIndex: 3 }
+		{ name: 'Blog', link: '/blog', activeIndex: 2, selectedIndex: 0 },
+		{ name: 'Documentation', link: '/documentation', activeIndex: 2, selectedIndex: 1 },
+		{ name: 'Profile', link: '/account/profile', activeIndex: 2, selectedIndex: 2 },
+		{ name: 'Website Development', link: '/home', activeIndex: 2, selectedIndex: 3 }
 	];
 
 	const routes = [
@@ -314,7 +327,7 @@ const TopMenu = (props) => {
 
 	const tabs = (
 		<React.Fragment>
-			<Tabs value={props.value} onChange={handleChange} indicatorColor="primary" className={classes.tabContainer}>
+			<Tabs value={props.value} onChange={handleChange} className={classes.tabContainer}>
 				{routes.map((route, index) => (
 					<Tab
 						key={`${route}${index}`}
@@ -330,8 +343,8 @@ const TopMenu = (props) => {
 					/>
 				))}
 			</Tabs>
-			<Button variant="contained" color="secondary" className={classes.button}>
-				Sign Up
+			<Button onClick={handleSignin} variant="contained" color="secondary" className={classes.button}>
+				Sign In
 			</Button>
 			<Menu
 				id="simple-menu"
@@ -407,7 +420,7 @@ const TopMenu = (props) => {
 						button
 						className={classes.drawerItemSignup}
 						component={Link}
-						to="/signup"
+						to="/account/signup"
 						selected={props.value === 5}
 					>
 						<ListItemText className={classes.drawerItem} disableTypography>
@@ -429,7 +442,7 @@ const TopMenu = (props) => {
 	return (
 		<React.Fragment>
 			<ElevationScroll>
-				<AppBar position="static" className={classes.appbar}>
+				<AppBar color="transparent" position="static" className={classes.appbar}>
 					<Toolbar disableGutters>
 						<Button
 							component={Link}
